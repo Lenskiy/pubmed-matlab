@@ -95,7 +95,6 @@ You can switch the LLM model in the script (e.g., `qwen2.5:0.5b`, `llama3.2:1b`,
 ---
 ## High-Level Pipeline Overview: Medical Literature Retrieval and Clustering
 
-## High-Level Pipeline Overview: Medical Literature Retrieval and Clustering 
 
 ```mermaid
 
