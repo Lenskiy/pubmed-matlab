@@ -98,14 +98,14 @@ You can switch the LLM model in the script (e.g., `qwen2.5:0.5b`, `llama3.2:1b`,
 
 ```mermaid
 flowchart TD
-    A[Search Criteria Construction (Keywords + Years)] --> B[Query Execution on PubMed and PMC]
-    B --> C[Article ID Retrieval (requestIDs.m)]
-    C --> D[Article Download & XML Parsing (requestArticles.m, parsePMCXML.m, parsePubMedXML.m)]
-    D --> E[Abstract Extraction and Cleaning (mergeParagraph.m, preprocessText.m)]
-    E --> F[Embedding Generation via MiniLM & LLM (e.g., 'qwen2.5:0.5b')]
-    F --> G[Clustering (k-means, linkage)]
-    G --> H[Visualization (t-SNE, dendrogram)]
-    G --> I[Topic Modeling with LDA (word-level & n-gram)] --> J[Word Clouds]
+    A["Search Criteria Construction (Keywords + Years)"] --> B["Query Execution on PubMed and PMC"]
+    B --> C["Article ID Retrieval (requestIDs.m)"]
+    C --> D["Article Download & XML Parsing (requestArticles.m, parsePMCXML.m, parsePubMedXML.m)"]
+    D --> E["Abstract Extraction and Cleaning (mergeParagraph.m, preprocessText.m)"]
+    E --> F["Embedding Generation via MiniLM & LLM (e.g., 'qwen2.5:0.5b')"]
+    F --> G["Clustering (k-means, linkage)"]
+    G --> H["Visualization (t-SNE, dendrogram)"]
+    G --> I["Topic Modeling with LDA (word-level & n-gram)"] --> J["Word Clouds"]
 ```
 
 
