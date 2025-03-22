@@ -54,7 +54,7 @@ Any biomedical topic with NLP-based abstract analysis
 - [Ollama](https://ollama.com) installed locally for LLM embeddings (optional)
 - Internet access to fetch articles via Entrez API
 
-### 2. Modify the `main_script.m`
+### 2. Modify the `mainScript.mlx`
 Customize the `query`, `startYear`, and `endYear` to suit your search domain:
 ```matlab
 startYear = 2015;
@@ -64,7 +64,7 @@ query = ['("gas sensing"[ab/ti] OR "gas sensor"[ab/ti]) AND ("machine learning"[
 
 ### 3. Run the Script
 ```matlab
->> main_script
+>> mainScript.mlx
 ```
 
 This will:
@@ -94,64 +94,23 @@ You can switch the LLM model in the script (e.g., `qwen2.5:0.5b`, `llama3.2:1b`,
 
 ---
 ## High-Level Pipeline Overview: Medical Literature Retrieval and Clustering
-┌────────────────────┐
-│ Search Criteria    │
-│ Construction       │
-│ (Keywords + Years) │
-└────────┬───────────┘
-         │
-         ▼
-┌────────────────────┐
-│ Query Execution    │
-│ on PubMed and PMC  │
-│ using Entrez API   │
-└────────┬───────────┘
-         │
-         ▼
-┌────────────────────┐
-│ Article ID         │
-│ Retrieval          │
-│ (requestIDs.m)     │
-└────────┬───────────┘
-         │
-         ▼
-┌──────────────────────┐
-│ Article Download     │
-│ and XML Parsing      │
-│ (requestArticles.m,  │
-│ parsePMCXML.m,       │
-│ parsePubMedXML.m)    │
-└────────┬─────────────┘
-         │
-         ▼
-┌──────────────────────┐
-│ Abstract Extraction  │
-│ and Cleaning         │
-│ (mergeParagraph.m,   │
-│ preprocessText.m)    │
-└────────┬─────────────┘
-         │
-         ▼
-┌────────────────────────┐
-│ Embedding Generation   │
-│ via MiniLM & LLM       │
-│ (e.g. 'qwen2.5:0.5b')  │
-└────────┬───────────────┘
-         │
-         ▼
-┌──────────────────────┐
-│ Clustering           │
-│ (k-means, linkage)   │
-│ + Visualization      │
-│ (t-SNE, dendrogram)  │
-└────────┬─────────────┘
-         │
-         ▼
-┌─────────────────────────┐
-│ Topic Modeling with LDA │
-│ (word-level & n-gram)   │
-│ + Word Clouds           │
-└─────────────────────────┘
+
+```mermaid
+graph TD
+    A[Search Criteria Construction<br>(Keywords + Years)]
+    B[Query Execution<br>on PubMed and PMC]
+    C[Article ID Retrieval<br>(requestIDs.m)]
+    D[Article Download & XML Parsing<br>(requestArticles.m, parsePMCXML.m, parsePubMedXML.m)]
+    E[Abstract Extraction and Cleaning<br>(mergeParagraph.m, preprocessText.m)]
+    F[Embedding Generation<br>via MiniLM & LLM<br>(e.g., 'qwen2.5:0.5b')]
+    G[Clustering<br>(k-means, linkage)]
+    H[Visualization<br>(t-SNE, dendrogram)]
+    I[Topic Modeling with LDA<br>(word-level & n-gram)]
+    J[Word Clouds]
+
+    A --> B --> C --> D --> E --> F --> G --> H
+    G --> I --> J
+```
 
 ---
 
