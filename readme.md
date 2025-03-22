@@ -95,21 +95,24 @@ You can switch the LLM model in the script (e.g., `qwen2.5:0.5b`, `llama3.2:1b`,
 ---
 ## High-Level Pipeline Overview: Medical Literature Retrieval and Clustering
 
-```mermaid
-graph TD
-    A[Search Criteria Construction<br>(Keywords + Years)]
-    B[Query Execution<br>on PubMed and PMC]
-    C[Article ID Retrieval<br>(requestIDs.m)]
-    D[Article Download & XML Parsing<br>(requestArticles.m, parsePMCXML.m, parsePubMedXML.m)]
-    E[Abstract Extraction and Cleaning<br>(mergeParagraph.m, preprocessText.m)]
-    F[Embedding Generation<br>via MiniLM & LLM<br>(e.g., 'qwen2.5:0.5b')]
-    G[Clustering<br>(k-means, linkage)]
-    H[Visualization<br>(t-SNE, dendrogram)]
-    I[Topic Modeling with LDA<br>(word-level & n-gram)]
-    J[Word Clouds]
+## High-Level Pipeline Overview: Medical Literature Retrieval and Clustering 
 
-    A --> B --> C --> D --> E --> F --> G --> H
-    G --> I --> J
+```mermaid
+
+graph TD
+  A[Search Criteria Construction<br>(Keywords + Years)]
+  B[Query Execution<br>on PubMed and PMC]
+  C[Article ID Retrieval<br>(requestIDs.m)]
+  D[Article Download & XML Parsing<br>(requestArticles.m, parsePMCXML.m, parsePubMedXML.m)]
+  E[Abstract Extraction and Cleaning<br>(mergeParagraph.m, preprocessText.m)]
+  F[Embedding Generation<br>via MiniLM & LLM<br>(e.g., 'qwen2.5:0.5b')]
+  G[Clustering<br>(k-means, linkage)]
+  H[Visualization<br>(t-SNE, dendrogram)]
+  I[Topic Modeling with LDA<br>(word-level & n-gram)]
+  J[Word Clouds] 
+
+  A --> B --> C --> D --> E --> F --> G --> H
+  G --> I --> J
 ```
 
 ---
