@@ -2,6 +2,8 @@
 
 This repository provides a fully automated MATLAB pipeline for retrieving, embedding, clustering, and analyzing biomedical literature from **PubMed** and **PubMed Central (PMC)**. It allows researchers to extract meaningful insights from scientific abstracts using transformer-based embeddings and topic modeling.
 
+[![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](matlab.mathworks.com/open/github/v1?repo=Lenskiy//pubmed-matlab&file=mainScript.mlx)
+
 ## Features
 
 - Customizable keyword-based queries with support for Boolean operators (AND, OR, NOT)
